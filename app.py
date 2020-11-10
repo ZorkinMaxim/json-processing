@@ -24,6 +24,15 @@ def printEvent(data):
     print(f"Date: {len(data['guests'])}")
     print("#" * 27)
 
+def listGuest(data):
+    print("All registered guests:")
+    i = 0
+    while i in range(len(data['guests'])):
+        for g in data['guests']:
+            i+=1
+            print(f"{i} {g}")
+
+
 def inviteGuest(data):
     name = input("Enter guest name: ")
     data["guests"].append(name)
@@ -58,7 +67,7 @@ while True:
     if result == 1:
         data = loadEventData()
         printEvent(data)
-        print(f"All registered Guests: {data['guests']}")
+        listGuest(data)
     if result == 2:
         data = loadEventData()
         data = inviteGuest(data)
